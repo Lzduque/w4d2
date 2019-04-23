@@ -13,21 +13,20 @@ const client = new pg.Client({
 
 var artistName = process.argv[2];
 
+function artistsName (artistName, callback) {
+  client.query("SELECT * from famous_people where first_name = $1 or last_name = $1", [artistName], (err, res) => {
+          if (err) {
+            callback([]);
+          } else {
+            callback(res.rows);
+          }
+  });
+}
+
 client.connect((err) => {
   if (err) {
     return console.error("Connection Error", err);
   }
-
-  function artistsName (artistName, callback) {
-    client.query("SELECT * from famous_people where first_name = $1 or last_name = $1", [artistName], (err, res) => {
-            if (err) {
-              callback([]);
-            } else {
-              callback(res.rows);
-            }
-    });
-  }
-
   artistsName(artistName, (rows) => {
     console.log(`Found ${rows.length}person(s) by the name '${artistName}':\n`);
     let count = 1;
@@ -37,6 +36,4 @@ client.connect((err) => {
       count ++;
     });
   });
-
-
 });
