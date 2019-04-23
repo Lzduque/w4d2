@@ -1,0 +1,24 @@
+{
+  "name": "w4d2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lzduque/w4d2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lzduque/w4d2/issues"
+  },
+  "homepage": "https://github.com/Lzduque/w4d2#readme",
+  "devDependencies": {
+    "http-server-spa": "^1.3.0",
+    "pg": "^7.10.0"
+  },
+  "dependencies": {}
+}
