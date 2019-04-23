@@ -13,7 +13,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('milestones', function(table){
       table.increments('id');
       table.string('description');
-      table.timestamps('date_achieved');
+      table.date('date_achieved');
     })
   ])
 };
